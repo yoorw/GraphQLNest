@@ -1,0 +1,19 @@
+
+type Author {
+    id: Int
+    firstName: String
+    lastName: String
+    email: String
+    posts: [Post]
+}
+
+type Post {
+    id: Int!
+    title: String
+    votes: Int
+}
+
+type Query {
+    getAuthors: [Author]
+    author(id: ID!): Author
+}
