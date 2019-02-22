@@ -2,12 +2,13 @@ import { Resolver, Query, Mutation, Args, ResolveProperty, Parent } from '@nestj
 import { AuthorsService } from './authors.service';
 import { ParseIntPipe } from '@nestjs/common';
 import { Author } from '../graphql.schema';
+import { PostsService } from './posts.service';
 
 @Resolver('Author')
 export class AuthorResolver {
     constructor(
         private readonly authorsService: AuthorsService, 
-        // private readonly postsService: PostsService,
+        private readonly postsService: PostsService,
     ) {}
 
     //// Online Example does not work
@@ -43,10 +44,11 @@ export class AuthorResolver {
 
 
 
-    // @ResolveProperty()
-    // async posts(@Parent() author) {
-    //     const { id } = author;
-    //     return await this.postsService.findAll({ authorId: id });
-    // }
+    @ResolveProperty()
+    async posts(@Parent() author) {
+        const { id } = author;
+        // return await this.postsService.findAll({ authorId: id });
+        return await this.postsService.findAll();
+    }
 
 }
