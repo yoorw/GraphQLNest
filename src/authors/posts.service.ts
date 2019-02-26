@@ -10,7 +10,16 @@ export class PostsService {
         votes: 100
     }];
 
-    findAll(): Post[] {
-        return this.posts;
-    }   
+    // findAll(): Post[] {
+    //     return this.posts;
+    // }   
+
+    async findAll(authorId: any) {
+        const posts = await this.posts.find({
+            where: { author: { id : authorId }},
+            relations: ['author'],
+            });
+        return posts.map(post => this.toResponseObject(post));
+    }
+    
 }
