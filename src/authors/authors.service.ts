@@ -7,7 +7,12 @@ export class AuthorsService {
         id: 1,
         firstName: 'Robert',
         lastName: 'Diggs',
-        email: 'rza@wutang.com'
+        email: 'rza@wutang.com',
+        posts: [{
+            id: 1,
+            title: 'Protect Ya Neck',
+            votes: 100
+        }]
     }];
 
     create(author: Author): Author {

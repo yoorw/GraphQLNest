@@ -26,6 +26,7 @@ export abstract class Post {
     id: number;
     title?: string;
     votes?: number;
+    author?: Author;
 }
 
 export abstract class IQuery {
