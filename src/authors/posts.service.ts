@@ -25,8 +25,6 @@ export class PostsService {
         let result = this.posts;
         result = result.filter(posts => posts.author.id === authorId);
         return Promise.resolve(result);
-
-
         }
         
         
