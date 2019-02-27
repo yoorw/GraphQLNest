@@ -44,8 +44,8 @@ export class AuthorResolver {
 
 
 
-    @ResolveProperty()
-    async posts(@Parent() author) {
+    @ResolveProperty('posts')
+    async getPosts(@Parent() author) {
         const { id } = author;
         return await this.postsService.findAll({ authorId: id });
         // return await this.postsService.findAll();

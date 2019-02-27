@@ -9,18 +9,17 @@ export class PostsService {
         id: 1,
         title: 'C.R.E.A.M',
         votes: 100,
-        author: {
-            id: 2,
-            firstName: 'Dennis',
-            lastName: 'Cole',
-            email: 'ghostface@wutang.com',
-        }
-    
+        // author: {
+        //     id: 2,
+        //     firstName: 'Dennis',
+        //     lastName: 'Cole',
+        //     email: 'ghostface@wutang.com',
+        // }
     }];
 
     findAll( 
         // @Args('authorId', ParseIntPipe) 
-        authorId: any 
+        authorId: number 
     ): Promise<Post[]> {
         let result = this.posts;
         result = result.filter(posts => posts.author.id === authorId);
