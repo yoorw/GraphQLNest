@@ -41,12 +41,10 @@ export class AuthorResolver {
     // @Mutation('createAuthor')
     // async create(@Args('createAuthorInput') args: CreateAuthorDto)
 
-
-
-
     @ResolveProperty('posts')
-    async getPosts(@Parent() author) {
-        const { id } = author;
+    async getPosts(
+        @Parent() Author) {
+        const { id } = Author.id;
         return await this.postsService.findAll({ authorId: id });
         // return await this.postsService.findAll();
     }
