@@ -18,20 +18,6 @@ export class PostsService {
     
     }];
 
-<<<<<<< HEAD
-    // findAll(): Post[] {
-    //     return this.posts;
-    // }   
-
-    async findAll(authorId: any) {
-        const posts = await this.posts.find({
-            where: { author: { id : authorId }},
-            relations: ['author'],
-            });
-        return posts.map(post => this.toResponseObject(post));
-    }
-    
-=======
     findAll( 
         // @Args('authorId', ParseIntPipe) 
         authorId: any 
@@ -67,5 +53,4 @@ export class PostsService {
 //   }
 
 
->>>>>>> updated for Authors/Post relation resolver
 }
