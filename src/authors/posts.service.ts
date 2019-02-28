@@ -17,14 +17,14 @@ export class PostsService {
         // }
     }];
 
-    findAll( 
-        // @Args('authorId', ParseIntPipe) 
-        authorId: number 
-    ): Promise<Post[]> {
-        let result = this.posts;
-        result = result.filter(posts => posts.author.id === authorId);
-        return Promise.resolve(result);
-        }
+    // findAll( 
+    //     // @Args('authorId', ParseIntPipe) 
+    //     authorId: number 
+    // ): Promise<Post[]> {
+    //     let result = this.posts;
+    //     result = result.filter(posts => posts.author.id === authorId);
+    //     return Promise.resolve(result);
+    //     }
         
         
 //  // getSourceById( _sourceID: string ):

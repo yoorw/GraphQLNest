@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, ResolveProperty, Parent } from '@nestjs/graphql';
 import { AuthorsService } from './authors.service';
 import { ParseIntPipe } from '@nestjs/common';
-import { Author } from '../graphql.schema';
+import { Author, Post } from '../graphql.schema';
 import { PostsService } from './posts.service';
 
 @Resolver('Author')
@@ -41,12 +41,21 @@ export class AuthorResolver {
     // @Mutation('createAuthor')
     // async create(@Args('createAuthorInput') args: CreateAuthorDto)
 
+    // // Online example - does not work 
+    // @ResolveProperty('posts')
+    // async getPosts(@Parent() author) {
+    //     const { id } = author;
+    //     return await this.postsService.findAll({ authorId: id });
+    // }
+
+    // Project example - does not work 
     @ResolveProperty('posts')
-    async getPosts(
-        @Parent() Author) {
-        const { id } = Author.id;
-        return await this.postsService.findAll({ authorId: id });
-        // return await this.postsService.findAll();
+    async getPosts(@Parent() author: Author): Promise<Post[]> {
+        return Promise.resolve([{
+            id: 1,
+            title: "Triumph",
+            votes: 1000
+        }]);
     }
 
 }

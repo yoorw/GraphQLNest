@@ -26,12 +26,9 @@ export abstract class Post {
     id: number;
     title?: string;
     votes?: number;
-    author?: Author;
 }
 
 export abstract class IQuery {
-    abstract getAuthors(): Author[] | Promise<Author[]>;
-
     abstract author(id: string): Author | Promise<Author>;
 
     abstract getCats(): Cat[] | Promise<Cat[]>;

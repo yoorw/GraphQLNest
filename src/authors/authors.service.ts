@@ -8,11 +8,11 @@ export class AuthorsService {
         firstName: 'Robert',
         lastName: 'Diggs',
         email: 'rza@wutang.com',
-        posts: [{
-            id: 1,
-            // title: 'Protect Ya Neck',
-            // votes: 100
-        }]
+        // posts: [{
+        //     id: 1,
+        //     // title: 'Protect Ya Neck',
+        //     // votes: 100
+        // }]
     }];
 
     create(author: Author): Author {
