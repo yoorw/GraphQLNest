@@ -9,7 +9,7 @@ export abstract class Author {
     firstName?: string;
     lastName?: string;
     email?: string;
-    posts?: Post[];
+    posts?: Posts[];
 }
 
 export abstract class Cat {
@@ -22,10 +22,11 @@ export abstract class IMutation {
     abstract createCat(createCatInput?: CreateCatInput): Cat | Promise<Cat>;
 }
 
-export abstract class Post {
+export abstract class Posts {
     id: number;
     title?: string;
     votes?: number;
+    authorId: number;
 }
 
 export abstract class IQuery {

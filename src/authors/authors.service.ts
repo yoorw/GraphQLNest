@@ -10,8 +10,8 @@ export class AuthorsService {
         email: 'rza@wutang.com',
         // posts: [{
         //     id: 1,
-        //     // title: 'Protect Ya Neck',
-        //     // votes: 100
+            // title: 'Protect Ya Neck',
+            // votes: 100
         // }]
     }];
 

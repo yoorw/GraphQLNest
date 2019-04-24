@@ -1,14 +1,16 @@
 import { Injectable, ParseIntPipe } from '@nestjs/common';
-import { Post } from '../graphql.schema';
+import { Posts } from '../graphql.schema';
 import { Args } from '@nestjs/graphql';
 
 @Injectable()
 export class PostsService {
-    private readonly posts: 
-    Post[] = [{
+    private readonly posts
+    : 
+    Posts[] = [{
         id: 1,
         title: 'C.R.E.A.M',
         votes: 100,
+        authorId: 1
         // author: {
         //     id: 2,
         //     firstName: 'Dennis',
@@ -16,6 +18,13 @@ export class PostsService {
         //     email: 'ghostface@wutang.com',
         // }
     }];
+
+    getPostsByAuthorId(authorId: number): Promise<Posts[]> {
+        let result = this.posts.filter((post) => post.authorId = authorId)
+        return Promise.resolve(result); 
+    }
+
+
 
     // findAll( 
     //     // @Args('authorId', ParseIntPipe) 

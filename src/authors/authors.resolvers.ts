@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, ResolveProperty, Parent } from '@nestjs/graphql';
 import { AuthorsService } from './authors.service';
 import { ParseIntPipe } from '@nestjs/common';
-import { Author, Post } from '../graphql.schema';
+import { Author, Posts } from '../graphql.schema';
 import { PostsService } from './posts.service';
 
 @Resolver('Author')
@@ -32,6 +32,9 @@ export class AuthorResolver {
         return await this.authorsService.findOneById(id);
     }
 
+    
+
+
     // // Online Example does not work
     // @Mutation()
     // async createAuthor(@Args('authorId') authorId: number) {
@@ -48,14 +51,22 @@ export class AuthorResolver {
     //     return await this.postsService.findAll({ authorId: id });
     // }
 
-    // Project example - does not work 
-    @ResolveProperty('posts')
-    async getPosts(@Parent() author: Author): Promise<Post[]> {
-        return Promise.resolve([{
-            id: 1,
-            title: "Triumph",
-            votes: 1000
-        }]);
+    // // Project example - does not work 
+    // @ResolveProperty('posts')
+    // async getPosts(@Parent() author: Author): Promise<Post[]> {
+    //     return Promise.resolve([{
+    //         id: 1,
+    //         title: "Triumph",
+    //         votes: 1000
+    //     }]);
+    // }
+    @ResolveProperty()
+    async posts(
+        @Parent() author
+    ): Promise<Posts[]> {
+        console.log('------------ AUTHOR PARENT ---------------');
+        console.log(author);
+        const post = await this.postsService.getPostsByAuthorId(author.id);
+        return Promise.resolve(post);
     }
-
 }

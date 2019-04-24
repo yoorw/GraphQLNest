@@ -4,14 +4,14 @@ type Author {
     firstName: String
     lastName: String
     email: String
-    posts: [Post]
+    posts: [Posts]
 }
 
-type Post {
+type Posts {
     id: Int!
     title: String
     votes: Int
-    # author: Author
+    authorId: Int!
 }
 
 type Query {
