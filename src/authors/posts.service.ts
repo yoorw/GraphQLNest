@@ -24,6 +24,13 @@ export class PostsService {
         return Promise.resolve(result); 
     }
 
+    upvoteById(postId: number): Promise<Posts> {
+        let result = this.posts.filter((post) => post.id = postId)
+        let votes = result[0].votes;
+        result[0].votes = result[0].votes + 1;
+        return Promise.resolve(result[0]); 
+    }
+
 
 
     // findAll( 

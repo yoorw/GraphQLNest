@@ -32,7 +32,7 @@ export class AuthorResolver {
         return await this.authorsService.findOneById(id);
     }
 
-    
+
 
 
     // // Online Example does not work
@@ -68,5 +68,10 @@ export class AuthorResolver {
         console.log(author);
         const post = await this.postsService.getPostsByAuthorId(author.id);
         return Promise.resolve(post);
+    }
+
+    @Mutation()
+    async upvotePost(@Args('postId') postId: number) {
+        return await this.postsService.upvoteById(postId);
     }
 }

@@ -19,6 +19,8 @@ export abstract class Cat {
 }
 
 export abstract class IMutation {
+    abstract upvotePost(postId: number): Posts | Promise<Posts>;
+
     abstract createCat(createCatInput?: CreateCatInput): Cat | Promise<Cat>;
 }
 
